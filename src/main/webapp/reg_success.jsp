@@ -41,8 +41,23 @@
 </head>
 <body>
 <div class="container">
-    <h1>Registration Successful</h1>
-    <p>Thank you for registering! Your account has been created successfully.</p>
+<%--    <h1>Registration Successful</h1>--%>
+<%--    <p>Thank you for registering! Your account has been created successfully.</p>--%>
+    <%
+        if (session.getAttribute("Success") != null) {
+    %>
+    <h1><%=session.getAttribute("Success")%></h1>
+
+    <%
+        } else {
+    %>
+    <h1><%=session.getAttribute("Error")%></h1>
+    <%
+        }
+    %>
+
+    <p><%=session.getAttribute("Message")%></p>
+
     <a href="adminDashboard.jsp">Back to Admin Dashboard</a>
 </div>
 </body>

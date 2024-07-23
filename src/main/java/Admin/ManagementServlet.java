@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.*;
 import java.sql.*;
@@ -90,10 +91,18 @@ public class ManagementServlet extends HttpServlet {
                 ps.setString(8, user_name);
 
                 int result = ps.executeUpdate();
+                HttpSession session = null;
                 if (result > 0) {
-                    out.println("<p>Customer details updated successfully.</p>");
+                    session = request.getSession();
+                    session.setAttribute("Success", "Modify Customer Information");
+                    session.setAttribute("Message", "Customer details updated successfully");
+                    response.sendRedirect("reg_success.jsp");
+//                    out.println("<p>Customer details updated successfully</p>");
                 } else {
-                    out.println("<p>Error updating customer details.</p>");
+                    session.setAttribute("Error", "Modify Customer Information");
+                    session.setAttribute("Message", "Customer details updated successfully");
+                    response.sendRedirect("reg_success.jsp");
+//                    out.println("<p>Error updating customer details.</p>");
                 }
                 out.println("<br>");
                 out.println("<a href='adminDashboard.jsp'>Back to Dashboard</a>");
@@ -106,10 +115,18 @@ public class ManagementServlet extends HttpServlet {
                 ps.setString(1, user_name);
 
                 int result = ps.executeUpdate();
+                HttpSession session = null;
                 if (result > 0) {
-                    out.println("<p>Customer deleted successfully.</p>");
+                    session = request.getSession();
+                    session.setAttribute("Success", "Delete Customer Information");
+                    session.setAttribute("Message", "Customer deleted successfully");
+                    response.sendRedirect("reg_success.jsp");
+//                    out.println("<p>Customer deleted successfully.</p>");
                 } else {
-                    out.println("<p>Error deleting customer.</p>");
+                    session.setAttribute("Error", "Delete Customer Information");
+                    session.setAttribute("Message", "Error deleting customer");
+                    response.sendRedirect("reg_success.jsp");
+//                    out.println("<p>Error deleting customer.</p>");
                 }
                 out.println("<br>");
                 out.println("<a href='adminDashboard.jsp'>Back to Dashboard</a>");

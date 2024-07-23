@@ -77,9 +77,16 @@ public class CategoryServlet extends HttpServlet {
                 }
 
                 response.setContentType("text/html");
-                out.println("Deposit Successful! Amount: " + amount);
+                session = request.getSession();
+                session.setAttribute("Success","Thank you!");
+                session.setAttribute("Message", "Deposit Successful! Amount: " + amount);
+                response.sendRedirect("reg_success.jsp");
+//                out.println("Deposit Successful! Amount: " + amount);
             } else {
-                out.println("Deposit Failed!");
+                session.setAttribute("Error","Deposit Failed!");
+                session.setAttribute("Message", "Error in depositing the amount");
+                response.sendRedirect("reg_success.jsp");
+//                out.println("Deposit Failed!");
             }
             out.print("<br>");
             out.println("<a href='customerDashboard.jsp'>Back to board</a>");
@@ -102,7 +109,7 @@ public class CategoryServlet extends HttpServlet {
                 if (rs.next()) {
                     double currentBalance = rs.getDouble("balance");
                     if (currentBalance < amount) {
-                        response.sendRedirect("insufficient_balance.jsp");
+                        out.println("insufficient_balance");
                         return;
                     }
                 }
@@ -126,12 +133,18 @@ public class CategoryServlet extends HttpServlet {
                     conn.commit();
                     response.setContentType("text/html");
                     PrintWriter out = response.getWriter();
-                    out.println("Withdrawal Successful! Amount: " + amount);
+                    session.setAttribute("Success","Thank you!");
+                    session.setAttribute("Message", "Withdrawal Successful! Amount: " + amount);
+                    response.sendRedirect("reg_success.jsp");
+//                    out.println("Withdrawal Successful! Amount: " + amount);
                 } else {
                     conn.rollback(); // Rollback transaction if update fails
                     response.setContentType("text/html");
                     PrintWriter out = response.getWriter();
-                    out.println("Withdrawal Failed! Insufficient balance.");
+                    session.setAttribute("Error","Sorry, Check the balance!");
+                    session.setAttribute("Message", "Withdrawal Failed! Insufficient balance.");
+                    response.sendRedirect("reg_success.jsp");
+//                    out.println("Withdrawal Failed! Insufficient balance.");
                 }
             }
             out.println("<a href='customerDashboard.jsp'>Back to board</a>");
@@ -179,11 +192,17 @@ public class CategoryServlet extends HttpServlet {
                 conn.commit();
 
                 response.setContentType("text/html");
-                response.getWriter().println("Fund Transfer Successful! Amount: " + amount + ", To Account: " + toAccount);
+                session.setAttribute("success","Thank you!");
+                session.setAttribute("Message", "Fund Transfer Successful! Amount: " + amount + ", To Account: " + toAccount);
+                response.sendRedirect("reg_success.jsp");
+//                response.getWriter().println("Fund Transfer Successful! Amount: " + amount + ", To Account: " + toAccount);
             } else {
                 conn.rollback();
                 response.setContentType("text/html");
-                response.getWriter().println("Fund Transfer Failed! Insufficient balance.");
+                session.setAttribute("Error","Sorry, Check the balance!");
+                session.setAttribute("Message", "Fund Transfer Failed! Insufficient balance.");
+                response.sendRedirect("reg_success.jsp");
+//                response.getWriter().println("Fund Transfer Failed! Insufficient balance.");
             }
             PrintWriter out = response.getWriter();
             out.println("<a href='customerDashboard.jsp'>Back to board</a>");
@@ -268,7 +287,10 @@ public class CategoryServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         if (account_number == null || newPin == null || inputUsername == null || inputPassword == null ) {
-            out.println("Missing parameters.");
+            session.setAttribute("error","Something went wrong!");
+            session.setAttribute("Message", "Missing parameters");
+            response.sendRedirect("reg_success.jsp");
+//            out.println("Missing parameters.");
             out.print("<br>");
             out.println("<a href='customerDashboard.jsp'>Back to board</a>");
             return;
@@ -276,7 +298,10 @@ public class CategoryServlet extends HttpServlet {
 
 
         if (inputPassword.equals(newPin)) {
-            out.println("PIN already exists.");
+            session.setAttribute("error","Something went wrong!");
+            session.setAttribute("Message", "PIN already exists");
+            response.sendRedirect("reg_success.jsp");
+//            out.println("PIN already exists.");
             out.print("<br>");
             out.println("<a href='customerDashboard.jsp'>Back to board</a>");
             return;
@@ -301,13 +326,22 @@ public class CategoryServlet extends HttpServlet {
                             int rowsUpdated = updateStmt.executeUpdate();
 
                             if (rowsUpdated > 0) {
-                                out.println("PIN Change Successful!");
+                                session.setAttribute("success","Thank you!");
+                                session.setAttribute("Message", "PIN Changed Successfully!");
+                                response.sendRedirect("reg_success.jsp");
+//                                out.println("PIN Change Successful!");
                             } else {
-                                out.println("PIN Change Failed!");
+                                session.setAttribute("error","Something went wrong!");
+                                session.setAttribute("Message", "PIN Changed Failed!");
+                                response.sendRedirect("reg_success.jsp");
+//                                out.println("PIN Change Failed!");
                             }
                         }
                     } else {
-                        out.println("Authentication Failed!");
+                        session.setAttribute("error","Something went wrong!");
+                        session.setAttribute("Message", "Authentication Failed!");
+                        response.sendRedirect("reg_success.jsp");
+//                        out.println("Authentication Failed!");
                     }
                 }
                 out.println("<a href='customerDashboard.jsp'>Back to board</a>");

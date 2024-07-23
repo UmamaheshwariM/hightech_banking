@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.SecureRandom;
@@ -67,6 +69,9 @@ public class RegistrationServlet extends HttpServlet {
 //                int password = generateNumber(4);
 //                System.out.println("Generated PIN: " + password);
 
+                HttpSession session = request.getSession();
+                session.setAttribute("Success", "Registration Successful");
+                session.setAttribute("Message", "Thank you for registering! Your account has been created successfully");
                 response.sendRedirect("reg_success.jsp");
             } else {
                 response.sendRedirect("adminDashboard.jsp");
@@ -99,6 +104,7 @@ public class RegistrationServlet extends HttpServlet {
         }
         return sb.toString();
     }
+
 
     private boolean isUserExists(Connection con, String username, String email) throws SQLException {
         String query = "SELECT COUNT(*) AS count FROM customers WHERE user_name = ? OR email = ?";
