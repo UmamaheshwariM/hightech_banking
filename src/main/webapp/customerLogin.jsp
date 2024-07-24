@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Customer Login</title>
     <style>
+        *{
+            font-family: "Times New Roman";
+        }
         input[type="number"]::-webkit-outer-spin-button,
         input[type="number"]::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -16,18 +19,26 @@
         }
 
         body {
+            background-image: url('image/login.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            backdrop-filter: blur(5px);
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             margin: 0;
-            padding: 0;
+            padding-top: 100px;
         }
         .container {
             width: 40%;
-            margin: 50px auto;
+            margin: 30px auto;
             background-color: white;
             padding: 20px;
             box-shadow: 0px 0px 10px 0px #000;
             text-align: center;
+            font-size: 20px;
         }
         h1 {
             color: #333;
@@ -56,28 +67,37 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 25px;
         }
         .btn:hover {
             background-color: #0056b3;
         }
+        form{
+            margin-top: 0px;
+        }
+        #topic{
+            color: white;
+            text-align: center;
+            font-size: 50px;
+            margin-top: 0px;
+            text-shadow: 2px 2px 2px midnightblue;
+        }
+        label{
+            padding-top: 20px;
+        }
     </style>
 </head>
 <body>
+<h1 id="topic">Customer Login</h1>
 <div class="container">
-    <h1>Customer Login</h1>
     <form action="CustomerLoginServlet" method="post">
         <div class="form-group">
             <label for="account_number">Account Number</label>
                 <input type="number" id="account_number" name="account_number" required>
-
             <label for="user_name">User Name</label>
                 <input type="text" id="user_name" name="user_name" required>
-        </div>
-        <div class="form-group">
             <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
             <button type="submit" class="btn">Login</button>
         </div>
 

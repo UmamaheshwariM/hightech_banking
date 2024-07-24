@@ -42,6 +42,7 @@ public class CustomerLoginServlet extends HttpServlet {
 
             if (rs.next()) {
                 HttpSession session = request.getSession();
+                session.setAttribute("isAdmin",false);
                 session.setAttribute("account_number", admin_Id);
                 session.setAttribute("user_name", user_name);
                 response.sendRedirect("customerDashboard.jsp");

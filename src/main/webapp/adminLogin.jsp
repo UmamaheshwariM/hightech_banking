@@ -12,26 +12,48 @@
         input[type="number"] {
             -moz-appearance: textfield;
         }
-
-        #welcome{
+        body {
+            background-image: url('image/ad.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            backdrop-filter: blur(5px);
+            margin: 0;
+            padding: 0;
+        }
+        #welcome {
             text-align: center;
             font-size: 50px;
-            margin-top:80px ;
+            margin-top: 80px;
+            color: white;
+            text-shadow: 2px 2px 4px midnightblue;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
         }
-        .form-group{
+        .form-group {
             text-align: center;
-            padding:20px;
+            padding: 15px;
             font-size: 20px;
             font-weight: bold;
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
         }
-        button{
+        button {
             font-size: 20px;
             padding: 10px;
             font-weight: bold;
+            color: midnightblue;
+            background-color: white;
+            border: 2px solid midnightblue;
+            border-radius: 7px;
+            box-shadow: 1px 1px;
+            font-family: 'Times New Roman', Times, serif;
         }
-        label{
+        label {
             padding: 10px;
-
+            color: white;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
         }
     </style>
 </head>

@@ -4,45 +4,66 @@
   <meta charset="UTF-8">
   <title>Banking System</title>
   <style>
-    #welcome{
+    body {
+      background-image: url('image/first.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      backdrop-filter: blur(5px);
+      margin: 0;
+      padding: 0;
+    }
+
+    #welcome {
+      position: relative;
       text-align: center;
       font-size: 50px;
-      margin-top: 80px;
+      /*margin-top: 80px;*/
+      padding-top: 150px;
+      color: white;
+      text-shadow: 2px 2px 4px #000000;
     }
-    p{
+
+    p {
       text-align: center;
       font-size: 30px;
-      font-weight:lighter;
+      font-weight: lighter;
+      color: white;
+      text-shadow: 2px 2px 4px #000000;
     }
-    .btn1{
+
+    .btn1, .btn2 {
       text-align: center;
-      padding: 30px;
+      margin-top: 20px;
     }
-    .btn2{
-      text-align: center;
-      padding: 20px;
-    }
-    button{
+
+    button {
       padding: 10px;
       font-size: 20px;
-      background-color: rgb(202, 153, 153);
-      border: 2px solid rgb(157, 93, 93);
+      background-color: white;
+      border: 2px solid midnightblue;
+      margin-top: 10px;
+      border-radius: 7px;
+      box-shadow: 1px 1px;
     }
-    a{
+
+    a {
       text-decoration: none;
-      color: rgb(161, 24, 24);
+      color: midnightblue;
+      font-family:"Times New Roman" ;
+      font-weight: bold;
     }
   </style>
-
 </head>
 <body>
 <div class="container">
   <h1 id="welcome">Welcome to the Login page<br>Booz Cooper Bank</h1>
-  <p>Please select an option </p>
+  <p>Please select an option</p>
   <div class="btn1">
-    <button> <a href="customerLogin.jsp" >Customer Login</a></button><br>
+    <button><a href="customerLogin.jsp">Customer Login</a></button><br>
   </div>
-  <div class="btn2"><button><a href="adminLogin.jsp">Admin Login</a></button>
+  <div class="btn2">
+    <button><a href="adminLogin.jsp">Admin Login</a></button>
   </div>
 </div>
 </body>

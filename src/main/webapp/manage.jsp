@@ -4,6 +4,15 @@
 <head>
     <title>Manage Customers</title>
     <style>
+        body{
+            background-image: url('image/succes.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            backdrop-filter: blur(5px);
+            margin: 0;
+            padding: 0;
+        }
         .tab {
             display: inline-block;
             margin-right: 5px;

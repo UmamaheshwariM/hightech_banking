@@ -5,18 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
   <style>
+    body {
+      background-image: url('image/index.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      backdrop-filter: blur(5px);
+      margin: 0;
+      padding: 0;
+    }
     #wel{
       text-align: center;
+      color: white;
       font-size: 60px;
       margin-top: 100px;
     }
     button{
       padding: 10px;
+      box-shadow: 1px 1px;
+      border:2px solid midnightblue;
+      border-radius: 7px;
 
     }
     .b1{
       text-align: center;
       padding: 20px;
+      border-radius: 7px;
+
 
     }
     .b2{
@@ -27,11 +42,15 @@
     .back{
       text-align: center;
       padding: 20px;
+      font-weight: bold;
     }
     a{
       text-decoration: none;
       font-size: 25px;
       padding: 20px;
+      color: midnightblue;
+      font-family: "Times New Roman";
+
     }
   </style>
 </head>

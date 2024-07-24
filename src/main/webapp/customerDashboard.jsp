@@ -2,6 +2,15 @@
 <html>
 <head>
     <style>
+        body {
+            background-image: url('image/category.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            backdrop-filter: blur(5px);
+            margin: 0;
+            padding: 0;
+        }
         #welcome {
             padding: 10px;
             margin-left: 40px;
@@ -14,9 +23,10 @@
             padding-bottom: 20px;
         }
         #op {
+            font-size: 70px;
             text-align: center;
             font-size: 40px;
-            margin-left: 30px;
+            margin-left: 300px;
             padding-bottom: 10px;
         }
         .f1, .f2 {
@@ -33,17 +43,27 @@
             font-size: 30px;
         }
         button {
+            color: midnightblue;
+            font-family: "Times New Roman";
+
             font-size: 30px;
             padding: 10px 20px;
-            background-color: rgb(241, 207, 165);
+            background-color: white;
+            border: 2px solid midnightblue;
+            box-shadow: 1px 1px;
         }
         .exit {
-            margin-top: 500px;
+            margin-top: 450px;
             text-align: center;
         }
         body {
             background-color: black;
-            color: powderblue;
+            color: white;
+        }
+        a{
+            color: midnightblue;
+            font-family: "Times New Roman";
+
         }
     </style>
     <title></title>

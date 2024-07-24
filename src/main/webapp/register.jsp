@@ -16,24 +16,24 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
+            display: grid;
+            background-image: url('image/new.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            backdrop-filter: blur(5px);
+            padding: 0;
+            font-family: "Times New Roman";
             justify-content: center;
             align-items: center;
-            height:
-            margin: 10;
         }
         .registration-container {
             background-color: #ffffff;
             padding: 10px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
-        }
-        .registration-container h2 {
-            margin-bottom: 20px;
+            width: 600px;
+            margin-bottom: 30px;
         }
         .registration-container label {
             display: block;
@@ -47,13 +47,14 @@
             border: 1px solid #ccc;
         }
         .registration-container button {
-            width: 100%;
+            width: 30%;
             padding: 5px;
-            background-color: #28a745;
+            background-color: midnightblue;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-left: 210px;
         }
         .registration-container button:hover {
             background-color: #218838;
@@ -61,11 +62,20 @@
         .b1{
             margin-top: 0px;
         }
+        #reg{
+            text-align: center;
+            color: white;
+            font-size: 30px;
+        }
+        form{
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
+<h2 id="reg">Customer Registration</h2>
 <div class="registration-container">
-    <h2>Customer Registration</h2>
+
     <form action="RegistrationServlet" method="post">
         <div class="b">
             <label for="user_name">User Name</label>

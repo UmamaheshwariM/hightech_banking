@@ -4,13 +4,19 @@
     <title>Registration Success</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-image: url('image/reg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            backdrop-filter: blur(5px);
+            margin: 0;
+            padding: 0;
+            font-family: "Times New Roman";
             background-color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
         }
         .container {
             background-color: #fff;
@@ -20,7 +26,7 @@
             text-align: center;
         }
         .container h1 {
-            color: #4CAF50;
+            color: midnightblue;
         }
         .container p {
             color: #333;
@@ -29,13 +35,13 @@
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: midnightblue;
             color: #fff;
             text-decoration: none;
             border-radius: 4px;
         }
         .container a:hover {
-            background-color: #45a049;
+            background-color: midnightblue;
         }
     </style>
 </head>
@@ -57,8 +63,17 @@
     %>
 
     <p><%=session.getAttribute("Message")%></p>
-
+<%
+    if ((boolean)session.getAttribute("isAdmin") ) {
+%>
     <a href="adminDashboard.jsp">Back to Admin Dashboard</a>
+    <%
+        }else{
+    %>
+    <a href="customerDashboard.jsp">Back to Customer Dashboard</a>
+    <%
+        }
+    %>
 </div>
 </body>
 </html>

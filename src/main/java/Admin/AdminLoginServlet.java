@@ -40,6 +40,7 @@ public class AdminLoginServlet extends HttpServlet {
 
             if (rs.next()) {
                 HttpSession session = request.getSession();
+                session.setAttribute("isAdmin",true);
                 session.setAttribute("admin", admin_Id);
                 response.sendRedirect("adminDashboard.jsp");
             } else {
