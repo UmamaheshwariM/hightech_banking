@@ -15,6 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import static java.lang.System.out;
+
 @WebServlet("/AdminLoginServlet")
 public class AdminLoginServlet extends HttpServlet {
     @Serial()
@@ -23,7 +25,7 @@ public class AdminLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String admin_Id = request.getParameter("admin_Id");
         String admin_Password = request.getParameter("admin_Password");
-        System.out.println(admin_Id + " " + admin_Password);
+        out.println(admin_Id + " " + admin_Password);
 
         Connection con = null;
         PreparedStatement ps = null;
@@ -44,7 +46,9 @@ public class AdminLoginServlet extends HttpServlet {
                 session.setAttribute("admin", admin_Id);
                 response.sendRedirect("adminDashboard.jsp");
             } else {
+
                 response.sendRedirect("adminLogin.jsp");
+
             }
 
         } catch (ClassNotFoundException | SQLException e) {

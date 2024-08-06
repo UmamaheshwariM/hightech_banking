@@ -75,7 +75,17 @@
 <body>
 <h2 id="reg">Customer Registration</h2>
 <div class="registration-container">
-
+    <script>
+        function validateNumberInput(input) {
+            var value = input.value;
+            var regex = /^[0-9]+$/;
+            if (!regex.test(value)) {
+                alert("Only numbers are allowed.");
+                return false;
+            }
+            return true;
+        }
+    </script>
     <form action="RegistrationServlet" method="post">
         <div class="b">
             <label for="user_name">User Name</label>
@@ -92,8 +102,8 @@
             <option value="Current Account">Current Account </option>
         </select>
 
-        <label for="phone_number">Phone Number</label>
-        <input type="number" id="phone_number" name="phone_number" required>
+        <label for="phone_number" onsubmit="return validateNumberInput(this.amount)">Phone Number</label>
+        <input type="number" id="phone_number" name="phone_number" required pattern="^0\.[1-9]\d?|[1-9]\d*(\.\d{1,2})?$" title="Only numbers are allowed">
 
         <label for="gender">Gender</label>
         <select id="gender" name="gender">
@@ -123,6 +133,8 @@
 
         <button type="submit"> Save & Register </button>
     </form>
+    <a href="adminDashboard.jsp"><button type="button">Back</button></a>
+
 </div>
 </body>
 </html>

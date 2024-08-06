@@ -121,12 +121,12 @@ public class ManagementServlet extends HttpServlet {
                     session.setAttribute("Success", "Delete Customer Information");
                     session.setAttribute("Message", "Customer deleted successfully");
                     response.sendRedirect("reg_success.jsp");
-//                    out.println("<p>Customer deleted successfully.</p>");
+
                 } else {
                     session.setAttribute("Error", "Delete Customer Information");
                     session.setAttribute("Message", "Error deleting customer");
                     response.sendRedirect("reg_success.jsp");
-//                    out.println("<p>Error deleting customer.</p>");
+
                 }
                 out.println("<br>");
                 out.println("<a href='adminDashboard.jsp'>Back to Dashboard</a>");

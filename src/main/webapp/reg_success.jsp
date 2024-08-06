@@ -41,39 +41,32 @@
             border-radius: 4px;
         }
         .container a:hover {
-            background-color: midnightblue;
+            background-color: darkblue;
         }
     </style>
 </head>
 <body>
 <div class="container">
-<%--    <h1>Registration Successful</h1>--%>
-<%--    <p>Thank you for registering! Your account has been created successfully.</p>--%>
     <%
-        if (session.getAttribute("Success") != null) {
-    %>
-    <h1><%=session.getAttribute("Success")%></h1>
-
-    <%
-        } else {
-    %>
-    <h1><%=session.getAttribute("Error")%></h1>
-    <%
-        }
+        String success = (String) session.getAttribute("Success");
+        String error = (String) session.getAttribute("Error");
+        String message = (String) session.getAttribute("Message");
+        Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
     %>
 
-    <p><%=session.getAttribute("Message")%></p>
-<%
-    if ((boolean)session.getAttribute("isAdmin") ) {
-%>
+    <% if (success != null) { %>
+    <h1><%= success %></h1>
+    <% } else if (error != null) { %>
+    <h1><%= error %></h1>
+    <% } %>
+
+    <p><%= message != null ? message : "" %></p>
+
+    <% if (isAdmin != null && isAdmin) { %>
     <a href="adminDashboard.jsp">Back to Admin Dashboard</a>
-    <%
-        }else{
-    %>
+    <% } else { %>
     <a href="customerDashboard.jsp">Back to Customer Dashboard</a>
-    <%
-        }
-    %>
+    <% } %>
 </div>
 </body>
 </html>
